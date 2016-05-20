@@ -1,0 +1,15 @@
+# Link a thing from one level up. Eg. `nlink schema`
+# Note: requires npm install -g json
+PACKAGEDIR=`ls ../|grep $1`;
+PACKAGENAME=`json -f ../$PACKAGEDIR/package.json 'name'`;
+if [ -n "$PACKAGENAME" ]; then
+	read -p "Press [Enter] key to link $PACKAGENAME...";
+	npm link;
+	THISNAME=`json -f package.json 'name'`;
+	
+	cd ../$PACKAGEDIR && npm link && npm link $THISNAME && cd -;
+	npm link $PACKAGENAME;
+	which notify-send>/dev/null 2>&1 && notify-send 'Package linked' "$PACKAGENAME ➤ $THISNAME" --icon=emblem-symbolic-link
+else
+	echo "Could not find your package."
+fi
