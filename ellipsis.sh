@@ -8,7 +8,7 @@ pkg.install() {
 }
 
 pkg.link() {
-    fs.link_rfile nlink $ELLIPSIS_PATH/bin/
+    fs.link_rfile nlink $ELLIPSIS_PATH/bin/nlink
 }
 
 pkg.unlink() {
