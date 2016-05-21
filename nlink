@@ -1,3 +1,4 @@
+#!/bin/bash
 # Link a thing from one level up. Eg. `nlink schema`
 # Note: requires npm install -g json
 PACKAGEDIR=`ls ../|grep $1`;
