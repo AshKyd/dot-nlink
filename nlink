@@ -1,10 +1,9 @@
-#!/bin/bash
-# Link a thing from one level up. Eg. `nlink schema`
+#!/user/bin/env bash
+# Link a thing from one level up. Eg. `nlink schema` or with regex, `nlink sc.*a`
 # Note: requires npm install -g json
 PACKAGEDIR=`ls ../|grep $1`;
 PACKAGENAME=`json -f ../$PACKAGEDIR/package.json 'name'`;
 if [ -n "$PACKAGENAME" ]; then
-	read -p "Press [Enter] key to link $PACKAGENAME...";
 	npm link;
 	THISNAME=`json -f package.json 'name'`;
 	
