@@ -5,6 +5,8 @@ If you've got long repo names with NPM namespacing, this reduces the typing you 
 
 Eg. `nlink foo` will link the current folder into `../my-foo-repo` and vice versa. nlink takes the NPM package name from the package.json, so also handles package names such as `@my-npm-namespace/my-foo-repo`.
 
+Note: you can also use regex in the name. For instance `nlink f.*bar` will match `foobar`.
+
 ## Install
 Clone and symlink or install with [ellipsis][ellipsis]:
 
